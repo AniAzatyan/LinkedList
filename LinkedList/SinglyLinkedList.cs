@@ -179,7 +179,7 @@ namespace LinkedList
                 return true;
             }
 
-            void System.Collections.IEnumerator.Reset()
+            public void Reset()
             {
                 current = default(T);
                 node = list.head;
