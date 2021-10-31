@@ -13,7 +13,6 @@ namespace LinkedList
         {
             get { return count; }
         }
-
         public Node<T> First
         {
             get { return head; }
@@ -113,6 +112,10 @@ namespace LinkedList
             }
             return null;
         }
+        public bool Contains(T value)
+        {
+            return Find(value) != null;
+        }
         public void ReverseLinkedList()
         {
             Node<T> prev = null;
@@ -127,12 +130,10 @@ namespace LinkedList
             }
             head = prev;
         }
-
         public IEnumerator<T> GetEnumerator()
         {
             return new Enumerator(this);
         }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

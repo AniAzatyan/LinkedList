@@ -61,6 +61,28 @@ namespace LinkedList
             }
             count++;
         }
+        public void InsertBefore(DNode<T> next_node, T data)
+        {
+            if (next_node == null)
+            {
+                Console.WriteLine("The given next node cannot be null");
+                return;
+            }
+            DNode<T> newNode = new DNode<T>(data);
+            //newNode.next = prev_node.next;
+            //prev_node.next = newNode;
+            //newNode.prev = prev_node;
+
+            newNode.next = next_node;
+            newNode.prev = next_node.prev;
+            next_node.prev.next = newNode;
+            next_node.prev = newNode;
+            count++;
+            if (next_node == head)
+            {
+                head = newNode;
+            }
+        }
         public DNode<T> GetLastNode()
         {
             DNode<T> temp = head;
@@ -101,8 +123,10 @@ namespace LinkedList
             }
             return null;
         }
-
-
+        public bool Contains(T value)
+        {
+            return Find(value) != null;
+        }
         public void InternalRemoveNode(DNode<T> node)
         {
             
@@ -140,7 +164,6 @@ namespace LinkedList
         {
             return new Enumerator(this);
         }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -203,7 +226,6 @@ namespace LinkedList
             }
 
         }
-
     }
 
 }
