@@ -160,6 +160,20 @@ namespace LinkedList
             }
             return false;
         }
+        public void Reverse()
+        {
+            DNode<T> prev = null;
+            DNode<T> current = head;
+            DNode<T> temp = null;
+            while (current != null)
+            {
+                temp = current.next;
+                current.next = prev;
+                prev = current;
+                current = temp;
+            }
+            head = prev;
+        }
         public IEnumerator<T> GetEnumerator()
         {
             return new Enumerator(this);

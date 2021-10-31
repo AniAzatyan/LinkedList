@@ -54,33 +54,28 @@ namespace LinkedList
             }
             return temp;
         }
-        //public bool Remove(T value)
-        //{
-        //    Node<T> node = Find(value);
-        //    if (node != null)
-        //    {
-        //        InternalRemoveNode(node);
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        //internal void InternalRemoveNode(Node<T> node)
-        //{
-        //    if (node.next == node)
-        //    {
-        //        head = null;
-        //    }
-        //    else
-        //    {
-        //        node.next.prev = node.prev;
-        //        node.prev.next = node.next;
-        //        if (head == node)
-        //        {
-        //            head = node.next;
-        //        }
-        //    }
-        //    count--;
-        //}
+        public bool Remove(T data)
+        {
+            Node<T> currentNode = head;
+            if (currentNode._data.ToString().Equals(data.ToString()))
+            {
+                head = currentNode.next ;
+            }
+            else { 
+            while (currentNode.next != null)
+            {
+                if (currentNode.next._data.ToString().Equals(data.ToString()))
+                {
+                    currentNode.next = currentNode.next.next;
+                    count--;
+                    return true;
+                }
+                currentNode = currentNode.next;
+            }
+        }
+            
+            return false;
+        }
         public Node<T> Find(T value)
         {
             Node<T> node = head;
@@ -116,7 +111,7 @@ namespace LinkedList
         {
             return Find(value) != null;
         }
-        public void ReverseLinkedList()
+        public void Reverse()
         {
             Node<T> prev = null;
             Node<T> current = head;
