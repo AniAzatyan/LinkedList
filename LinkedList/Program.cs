@@ -28,20 +28,20 @@ namespace LinkedList
             {
                 Console.WriteLine(item);
             }
-            //_SinglyLinkedList<string> list1 = new _SinglyLinkedList<string>();
-            //list1.InsertFront("Anna");
-            //list1.InsertFront("Liana");
-            //list1.InsertFront("Diana");
-            //list1.InsertFront("Nana");
-            //Node<string> c = list1.GetLastNode();
-            //Node<string> d = list1.Find("Liana");
-            //list1.InsertAfter(d, "Suren");
-            //list1.InsertLast("Davit");
-            ////list1.Remove("Liana");
-            //foreach (var item in list1)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            _SinglyLinkedList<string> list1 = new _SinglyLinkedList<string>();
+            list1.InsertFront("Anna");
+            list1.InsertFront("Liana");
+            list1.InsertFront("Diana");
+            list1.InsertFront("Nana");
+            Node<string> c = list1.GetLastNode();
+            Node<string> d = list1.Find("Liana");
+            list1.InsertAfter(d, "Suren");
+            list1.InsertLast("Davit");
+            //list1.Remove("Liana");
+            foreach (var item in list1)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
