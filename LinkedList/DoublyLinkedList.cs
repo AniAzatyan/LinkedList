@@ -69,10 +69,6 @@ namespace LinkedList
                 return;
             }
             DNode<T> newNode = new DNode<T>(data);
-            //newNode.next = prev_node.next;
-            //prev_node.next = newNode;
-            //newNode.prev = prev_node;
-
             newNode.next = next_node;
             newNode.prev = next_node.prev;
             next_node.prev.next = newNode;
